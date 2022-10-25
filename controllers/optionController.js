@@ -1,5 +1,6 @@
 const options = require('../models/option');
 
+/* This is a function that is being exported from the file which give access to add vote to a particular option in the database. */
 module.exports.add_vote = function(req, res){
     const id = req.params.id;
     options.findById(id, function(err, option){
@@ -16,6 +17,7 @@ module.exports.add_vote = function(req, res){
     });
 }
 
+/* This is a function that is being exported from the file which give access to delete an particular option from the database. */
 module.exports.delete = function(req, res){
     const id = req.params.id;
     options.findById(id, function(err, option){

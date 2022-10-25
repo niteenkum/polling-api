@@ -1,7 +1,7 @@
 const question = require('../models/question');
 const option = require('../models/option');
 
-/* A function that is being exported from the controller. */
+/* A function that is being exported from the controller to view question and there all the options available in the database. */
 module.exports.question = function(req, res){
   const id = req.params.id;
   question.findById(id, function(err, ques){
@@ -89,6 +89,9 @@ module.exports.createOption = function(req, res){
 }
 
 
+
+/* A function that is being exported from the controller and which is used to delete a question if the
+question exists and if none of the options contains votes. */
 module.exports.delete = function(req, res){
   const id = req.params.id;
   option.find({questionId: id},function(err, options) {
